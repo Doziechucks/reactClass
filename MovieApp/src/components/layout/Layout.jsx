@@ -1,16 +1,16 @@
 import React from "react";
-import { Outlet, outlet } from "react-router"
+import { Outlet } from "react-router"
 import Footer from "../footer/Footer";
 import Header from "../header/Header";
 import SideBar from "../sideBar/SideBar";
-import style from "./layout/Layout.jsx"
+import style from "./layout.module.css"
 
 
 const Layout = () => { 
     return (
-        <div className="layOutWrapper">
+        <div className={style.layOutWrapper}>
             <Header />
-            <div>
+            <div className={style.SideBarOutlet}>
                 <SideBar />
                 <Outlet/>
             </div>

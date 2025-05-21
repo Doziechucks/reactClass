@@ -1,14 +1,39 @@
-.form input {
-    display: black;
-    margin: 10px;
-    border: grey solid 1px;
+.loginContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f2f0;
+
 }
 
-.form label {
-    display: block;
-    margin-top: 10px;
-    color: black;
+.inputGroup{
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-content: center;
+    
 }
+
+.inputGroup label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #333;
+  }
+
+  .linkContainer {
+    margin-top: 1.5rem;
+    text-align: center;
+  }
+
+  .inputGroup input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 0.5px solid #ddd;
+    border-radius: 10px;
+    font-size: 1rem;
+  }
+
+
 
 #form{
     display: grid;
@@ -18,7 +43,8 @@
     background: whitesmoke;
     padding: 100px;
     border-radius: 15px;
-    max-width: 200px;
+    max-width: 300px;
+    height: 250px;
     margin: 80px auto;
     
 }

@@ -1,15 +1,19 @@
 import { configureStore } from "@reduxjs/toolkit"
-import { userAuthApiSlice } from "../service/UserAuthApi.jsx"
-import { setUpListener } from "@reduxjs/toolkit/query"
+import { userAuthApiSlice } from "../service/UserAuthApi"
+import { setupListeners } from "@reduxjs/toolkit/query";
+import { movieApi } from "../service/movieAPI";
+
 
 export const store = configureStore({
     reducer: {
-        [userAuthApiSlice.reducerPath]: userAuthApiSlice.reducer
+        [userAuthApiSlice.reducerPath]: userAuthApiSlice.reducer,
+        [movieApi.reducerPath] : movieApi.reducer
     },
 
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware(
-        getDefaultMiddleware().concat(userAuthApiSlice.middleware)
+    middleware: (getDefaultMiddleware) => (
+        getDefaultMiddleware().concat(userAuthApiSlice.middleware,
+        movieApi.middleware)
     )
 })
 
-setUpListener(store.dispatch)
+setupListeners(store.dispatch)

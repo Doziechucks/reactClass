@@ -1,14 +1,26 @@
 import React, { useState } from "react";
 import CustomButton from "../../../reuseable/CustomButton";
 import style from "./SignUp.module.css"
-import { useSignUpMutation } from "../../service/userAuthApi.jsx"
+import { useSignUpMutation } from "../../../service/userAuthApi.jsx"
 import {Link, useNavigate} from "react-router"
+import Login from "../login/Login";
 
 const SignUp = () => {
 ``
     const navigate = useNavigate()
 
-    const [signUp, isLoading, isError] = useSignUpMutation();
+    const userDetails = {
+        email : "",
+        firstname : "",
+        lastname : "",
+        password : "",
+    }
+
+    const [signUp, { isLoading, isError }] = useSignUpMutation();
+
+    const [userData, setUserData] = useState(userDetails);
+
+    
 
 
 
@@ -20,7 +32,7 @@ const SignUp = () => {
     const submitHandler = async (e) => {
         e.preventDefault();
         try {
-            const response = await signup(userData).unwrap();
+            const response = await signUp(userData).unwrap();
             if (response.status == 201) {
                 navigate("/login")
             }
@@ -66,5 +78,5 @@ const SignUp = () => {
         </>
         
     )
-
 }
+export default SignUp

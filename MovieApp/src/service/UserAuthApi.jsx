@@ -1,9 +1,10 @@
-import { create, fetchBaseeQuery } from "@reactjs/toolkit/query/react";
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
+
 
 const url = "http://localhost:8080/api"
-export const userAuthApi = createApi({
+export const userAuthApiSlice = createApi({
     reducerPath: 'userAuth',
-    batchQuery: fetchBaseeQuery({ baseUrl: `${url}` }),
+    batchQuery: fetchBaseQuery({ baseUrl: `${url}` }),
     endpoints: (builder) => ({
         signUp: builder.mutation({
             query: (data) => ({
@@ -29,3 +30,6 @@ export const userAuthApi = createApi({
     })
 
 })
+
+export const { useSignUpMutation, useLoginMutation} = userAuthApiSlice;
+

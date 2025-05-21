@@ -1,9 +1,17 @@
 import React from "react";
+import { useGetNowPlayingMoviesQuery } from "../../service/movieAPI";
+import MovieCard from "../../reuseable/MovieCard";
 
 const NowPlaying = () => { 
+
+    const data = useGetNowPlayingMoviesQuery()
+
     return (
-        <div>NowPlaying</div>
+        <div>
+            <MovieCard data={data} />
+        </div>
     )
+
 } 
 
-export default NowPlayingZz
+export default NowPlaying
